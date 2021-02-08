@@ -55,7 +55,6 @@ def _setup_test_environment(request):
 
     manager = get_plugin_manager()
     for plugin_name in plugin_config['extra_plugins']:
-        _register_plugin(plugin_name)
         with stoqlib.api.new_store() as store:
             manager.install_plugin(store, plugin_name)
         manager.activate_plugin(plugin_name)
